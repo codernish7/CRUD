@@ -78,7 +78,7 @@ function handleedit(product){
     </>
     </Routes>:
     <Routes>
-      <Route exact path="/" element={<Login loginStatus={setIsLoggedin} />}/>
+      <Route exact path="/" element={<Login loginStatus = {setIsLoggedin} />}/>
     </Routes>}
     </Router>
     </div>
