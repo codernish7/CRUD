@@ -57,6 +57,7 @@ export default function List(props){
 
     return(
         <div className="header">
+            <div className="searchsort">
             <div className="sorter">
             <label htmlFor="sortBY">Sort by</label>
             <select value={sort} onChange={handleSort} id="sortBY" >
@@ -71,6 +72,8 @@ export default function List(props){
             <label htmlFor="search">Search: </label>
             <input type="text" value={searchTerm} onChange={handleSearchChange} id="search" placeholder="Search by title or description"/>
             </div>
+            </div>
+            <br></br>
             {/* <ul>
             <li><Link to="/">create</Link></li>
             <li><Link to="/list">product listing</Link></li>

@@ -10,8 +10,10 @@ import {
 	Link,
 } from 'react-router-dom';
 import Edit from './components/Edit';
-import Navbar from './components/Navbar';
+import Navbar2 from './components/Navbar2';
 import Login from './components/Login';
+import Register from './components/Register';
+import Navbar from './components/Navbar1';
 
 function App() {
   const [result,setResult]=useState(storage())
@@ -46,40 +48,37 @@ function handleedit(product){
 
 }
 
- const[isLoggedin,setIsLoggedin]=useState(localStorage.getItem('isLoggedin')==='true')
- 
- useEffect(()=>{
-  const token=JSON.parse(localStorage.getItem('isLoggedin')) || false
-  setIsLoggedin(token)
- },[])
+  const[log,setLog]=useState()
 
-
- useEffect(()=>{
-  localStorage.setItem('isLoggedin',JSON.stringify(isLoggedin))
- },[isLoggedin])
-
-
+  function setter(x){
+    setLog(x)
+  }
+  
 
   
   
   return (
     <div className='parent'>
     <Router>
-      <Navbar/>
-      {isLoggedin?
+      
     
-    <Routes>
-    <>
+    {log?<><Navbar2 logout={setter}/><Routes>
+    
      
-     <Route exact path="/" element={<Create object={onsubmit}/>}/>
-     <Route exact path="/list" element={<List value={result} delete={handledelete} setValues={setResult}/>}/>
-     <Route exact path="/edit/:editID" element={<Edit  edit={handleedit} updated={result}/>}/>
+    <Route exact path="/" element={<Create object={onsubmit}/>}/>
+    <Route exact path="/list" element={<List value={result} delete={handledelete} setValues={setResult}/>}/>
+    <Route exact path="/edit/:editID" element={<Edit  edit={handleedit} updated={result}/>}/>
+   
+   
+   </Routes></>:<>
+   <Navbar/>
+   <Routes>
+      
+      <Route exact path="/register" element={<Register/>}/>
+      <Route exact path="/login" element={<Login boolean={setter} />}/>
+    </Routes></>}
     
-    </>
-    </Routes>:
-    <Routes>
-      <Route exact path="/" element={<Login loginStatus = {setIsLoggedin} />}/>
-    </Routes>}
+   
     </Router>
     </div>
   );

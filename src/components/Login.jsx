@@ -1,45 +1,38 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState,useEffect } from "react";
 
+export default function Login(props){
 
-export default function Login({loginStatus}){
+    const[email,setEmail]=useState('')
+    const[pass,setPass]=useState('')
 
-    const[login, setLogin]=useState({ email:'', password:''})
-    const[userData, setUserData]=useState([])
+    function handlemail(e){
+        setEmail(e.target.value)
+    }
+    function handlepass(e){
+        setPass(e.target.value)
+    }
+    function handleLogin(){
+        const data=JSON.parse(localStorage.getItem('token'))
+        for(let i=0; i<data.length; i++){
+            if(data[i].email===email && data[i].pass===pass){
+              props.boolean(true)
+              return
+            }
+            
+          }
+        props.boolean(false)
+    }
     
-    function handlechange(e){
-        
-        const property=e.target.name
-        setLogin({...login,[property]:e.target.value})
-        
-    }
-    console.log(login)
-    function handlesubmit(){
-       
-        setUserData([...userData,login])
-        
-        loginStatus(true)
-        localStorage.setItem('isloggedin','true')
-       
-        setLogin({ email:'', password:''})
-        
-    }
-    console.log(userData)
-   
 
     return(
         <div>
-            <h1>welcome to login</h1>
+            <label>email</label>
+            <input type="text" placeholder="email" onChange={handlemail} value={email}/>
             <br></br>
-            <div style={{display:"flex",flexDirection:"column"}}>
-            <label >Email</label>
-            <input onChange={handlechange} name="email" type="text" placeholder="email" value={login.email} />
+            <label>password</label>
+            <input type="text" placeholder="password" onChange={handlepass} value={pass} />
             <br></br>
-            <label>Password</label>
-            <input onChange={handlechange} name="password" type="text" placeholder="password" value={login.password}/>
-            <br></br>
-            <button onClick={handlesubmit}>login</button>
-            </div>
+            <button onClick={handleLogin}>Login</button>
         </div>
     )
 }
