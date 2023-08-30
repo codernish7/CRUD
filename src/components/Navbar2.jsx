@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 export default function Navbar(props){
 
     function handleLogout(){
-        props.logout(false)
+       localStorage.setItem('log','false')
+       props.logout(false)
     }
     
     return(

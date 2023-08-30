@@ -15,12 +15,12 @@ export default function Login(props){
         const data=JSON.parse(localStorage.getItem('token'))
         for(let i=0; i<data.length; i++){
             if(data[i].email===email && data[i].pass===pass){
-              props.boolean(true)
-              return
+              localStorage.setItem('log','true')
+              props.cred(true)
             }
             
           }
-        props.boolean(false)
+        
     }
     
 

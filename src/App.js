@@ -48,12 +48,10 @@ function handleedit(product){
 
 }
 
-  const[log,setLog]=useState()
-
-  function setter(x){
-    setLog(x)
-  }
+  let flag=JSON.parse(localStorage.getItem('log'))===true
   
+  const[islogged,setLog]=useState(flag)
+
 
   
   
@@ -62,7 +60,7 @@ function handleedit(product){
     <Router>
       
     
-    {log?<><Navbar2 logout={setter}/><Routes>
+    {islogged?<><Navbar2 logout={setLog}/><Routes>
     
      
     <Route exact path="/" element={<Create object={onsubmit}/>}/>
@@ -75,7 +73,7 @@ function handleedit(product){
    <Routes>
       
       <Route exact path="/register" element={<Register/>}/>
-      <Route exact path="/login" element={<Login boolean={setter} />}/>
+      <Route exact path="/login" element={<Login cred={setLog}/>}/>
     </Routes></>}
     
    
