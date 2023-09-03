@@ -141,8 +141,28 @@ table{
 }
 header{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 95vw;
   flex-direction: column;
   padding:2%;
+}
+.pages {
+  position: relative;
+  top:100px;
+  left:200px;
+ 
+}
+
+.pagebutton {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.pagebutton.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
 }

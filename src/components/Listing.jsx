@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 export default function List(props){
     console.log(props.value)
 
-    
-    
+    const[currentPage,setCurrentpage]=useState(1)
+
+    let itemsPerPage=5
+
+    let pagefactor=currentPage*itemsPerPage
+
+    let indexx=pagefactor-itemsPerPage
+
+   
+
+
     
     const[sort,setSort]=useState('')
     const [searchTerm, setSearchTerm] = useState("")
@@ -54,6 +63,14 @@ export default function List(props){
     
       const sortedAndFilteredProducts = sortedAndFilteredList();
     
+      let range=sortedAndFilteredProducts.slice(indexx,pagefactor)
+      const pageNum= Math.ceil(sortedAndFilteredProducts.length/itemsPerPage)
+
+      let pagination=Array.from({length:pageNum},(_,index)=>index+1)
+
+      function handlePageClick(pageNumber){
+        setCurrentpage(pageNumber)
+      }
 
     return(
         <div className="header">
@@ -94,7 +111,7 @@ export default function List(props){
       
       </thead>
       <tbody>
-        {sortedAndFilteredProducts.map((items,index)=>{
+        {range.map((items,index)=>{
 
             return(
                 <>
@@ -119,6 +136,12 @@ export default function List(props){
          
         </tbody>
         </table>
+        <div className="pages">
+            {pagination.map((pageNumber)=>
+                            <button key={pageNumber} onClick={()=>handlePageClick(pageNumber)} className={`pagebutton ${currentPage===pageNumber?'active':''}`}>
+                              {pageNumber}
+                            </button>)}
+        </div>
       
         </div>
     )
