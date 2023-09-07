@@ -6,7 +6,7 @@ export default function List(props){
 
     const[currentPage,setCurrentpage]=useState(1)
 
-    let itemsPerPage=5
+    let itemsPerPage=3
 
     let pagefactor=currentPage*itemsPerPage
 

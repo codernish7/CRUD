@@ -29,7 +29,7 @@ export default function Register(){
         }
     }
     return(
-        <div>
+        <div className="register-box">
 
             <label>name</label>
             <input type="text" name='name' placeholder="name" onChange={handleChange} value={cred.name} />

@@ -18,14 +18,16 @@ export default function Login(props){
               localStorage.setItem('log','true')
               props.cred(true)
             }
+           
             
           }
+         
         
     }
     
 
     return(
-        <div>
+        <div className="login-box">
             <label>email</label>
             <input type="text" placeholder="email" onChange={handlemail} value={email}/>
             <br></br>

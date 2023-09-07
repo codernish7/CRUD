@@ -16,7 +16,7 @@ export default function Navbar(props){
             <br></br>
             <li><Link to="/list" style={{textDecoration:'none',listStyle:'none',color:'white',backgroundColor:'rgb(45, 192, 180)'}}>products</Link></li>
             <br></br>
-            <li onClick={handleLogout} style={{textDecoration:'none',listStyle:'none',color:'white',backgroundColor:'rgb(45, 192, 180)'}}>Logout</li>
+            <li onClick={handleLogout} style={{cursor:'pointer',textDecoration:'none',listStyle:'none',color:'white',backgroundColor:'rgb(45, 192, 180)'}}>Logout</li>
             </ul>
         </div>
     )

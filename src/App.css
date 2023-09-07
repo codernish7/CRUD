@@ -166,3 +166,20 @@ header{
   color: #fff;
   border-color: #007bff;
 }
+
+.login-box{
+  position: relative;
+  right: 15rem;
+  display: flex;
+  flex-direction: column;
+  top:10rem;
+}
+
+.register-box{
+  position: relative;
+  gap: 1rem;
+  right: 15rem;
+  display: flex;
+  flex-direction: column;
+  top:10rem;
+}
