@@ -32,7 +32,7 @@ export default function Login(props){
             <input type="text" placeholder="email" onChange={handlemail} value={email}/>
             <br></br>
             <label>password</label>
-            <input type="text" placeholder="password" onChange={handlepass} value={pass} />
+            <input type="password" placeholder="password" onChange={handlepass} value={pass} />
             <br></br>
             <button onClick={handleLogin}>Login</button>
         </div>
