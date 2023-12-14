@@ -38,7 +38,7 @@ export default function Register(){
             <input type="text" name='email' placeholder="email" onChange={handleChange} value={cred.email}/>
             <br></br>
             <label>password</label>
-            <input type="text" name='pass' placeholder="password" onChange={handleChange} value={cred.pass}/>
+            <input type="password" name='pass' placeholder="password" onChange={handleChange} value={cred.pass}/>
             <button onClick={handleReg}>Register</button>
         </div>
     )
